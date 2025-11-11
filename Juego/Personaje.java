@@ -1,45 +1,52 @@
 package src.Juego;
 
-import src.CapaDatos.TeclasJugador;
 import src.Fabricas.Sprites;
-import src.Municiones.Municion;
 
-public class Personaje extends Entidad {
+public abstract class Personaje extends Entidad {
     protected int vida;
     protected int velocidad;
+    protected ControladorColisiones controladorColisiones;
+    protected int pasoY;
+    protected int pasoX;
+    protected boolean cayendo;
+    protected int puntaje=0;
 
     public Personaje(Sprites misSprites, Posicion posicion) {
         super(misSprites, posicion);
+        cayendo = true;
     }
-    public void moverse(TeclasJugador teclas){
-
+    
+    public void setCayendo(boolean caer){
+        this.cayendo=caer;
     }
-    public void recibirAtaque(Municion m){
-
+    public boolean getCayendo(){
+        return cayendo;
+    }
+    public int getPasoY(){
+        return pasoY;
+    }
+    public int getPasoX(){
+        return pasoX;
+    }
+    public void setPasoX(int paso){
+        pasoX=paso;
+    }
+    public void setPasoY(int paso){
+        pasoY=paso;
     }
     public void disparar(){
 
     }
-    public void aumentarPuntaje(int puntos){
 
+    public void subirBajarEscalera(){
     }
-    public void subirBajarPlataforma(){
+    public int getPuntaje() {
+        return puntaje;
+    }
 
+    public void setPuntaje(int p){
+        puntaje=puntaje+p;
     }
-    public void recibirImpacto(Personaje p){
-
-    }
-    public void saltar(){
-
-    }
-    public void acceptColision(Entidad e){
-
-    }
-    public void getState(){
-
-    }
-    public void setState(){
-
-    }
+    
    
 }

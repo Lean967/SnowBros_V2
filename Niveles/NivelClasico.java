@@ -1,44 +1,28 @@
 package src.Niveles;
 
-import java.util.LinkedList;
-
-import src.CapaDatos.ConstantesVistas;
+import src.CapaDatos.GestorSonido;
 import src.Enemigo.JefeDeNivel;
-import src.Juego.Entidad;
 import src.Juego.Posicion;
-import src.Jugador.SnowBro;
+
 public class NivelClasico extends Nivel {
     protected JefeDeNivel jefe;
+    protected static GestorSonido gestorSonido = GestorSonido.getInstancia();
     
     public NivelClasico (){
         super();
     }
 
     public void iniciarNivel(){
-
+        gestorSonido.reproducirMusica("CLASICO_NIVEL_1_MUSICA");
     }
 
-    public void reiniciar() {
+    public void setMoguera(int x, int y) {
+        jefe = fabricaEntidades.getMoguera(new Posicion(x, y));
     }
 
-    @Override
-    public void setMoguera() {
 
-    }
-
-    @Override
-    public void setKamakichi() {
-
-    }
-
-    @Override
-    public void setFrecuenciaEnemigos(int frecuencia) {
-
-    }
-
-    @Override
-    public void setFrecuenciaPowers(int frecuencia) {
-
+    public void setKamakichi(int x, int y) {
+        jefe = fabricaEntidades.getKamakichi(new Posicion(x, y));
     }
 
 }

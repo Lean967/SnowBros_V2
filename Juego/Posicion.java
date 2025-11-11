@@ -5,7 +5,6 @@ import src.Niveles.Nivel;
 public class Posicion {
     protected int x;
     protected int y;
-    protected Nivel nivel;
 
     public Posicion(int x, int y){
         this.x = x;

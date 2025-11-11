@@ -1,7 +1,9 @@
 package src.GUI.Observers;
 
 import java.awt.Dimension;
-import java.awt.Panel;
+import java.net.URL;
+
+import javax.swing.ImageIcon;
 
 import src.GUI.PanelPartida;
 import src.Jugador.SnowBro;
@@ -15,7 +17,7 @@ public class ObserverJugador extends ObserverGrafico{
         this.panelPartida = panelPartida;
         this.snowBroObservado = jugadorObservado;
         setOpaque(false);
-        ajustarTamañoPorDefecto();
+        //ajustarTamañoPorDefecto();
         update();
     }
 
@@ -29,11 +31,29 @@ public class ObserverJugador extends ObserverGrafico{
     }
 
     public void update(){
-        super.update();
-        setLocation(snowBroObservado.getPosicion().getX(), snowBroObservado.getPosicion().getY());
-        // Asegura que tenga tamaño visible en layouts null
-        ajustarTamañoPorDefecto();
+        //super.update();
+        //setLocation(snowBroObservado.getPosicion().getX(), snowBroObservado.getPosicion().getY());
+        setBounds(snowBroObservado.getBounds());
+        actualizarImagen();
+
+        // refrescar el número de vidas al costado del icono
+        panelPartida.actualizarIndicadorVidas(snowBroObservado.getVidas());
+        this.panelPartida.actualizarIndicadorPuntaje(snowBroObservado.getPuntaje());
+
         revalidate();
         repaint();
+    }
+    
+    protected void actualizarImagen(){
+        String rutaImagen = entidadObservada.getSprites().getRutaImagenActual();
+        if (!rutaImagen.startsWith("/")) {
+          rutaImagen = "/" + rutaImagen;
+        }
+        URL url = getClass().getResource(rutaImagen);
+        if (url != null) {
+          setIcon(new ImageIcon(url));
+        } else {
+          setIcon(new ImageIcon()); // Icono vacío como fallback
+        }
     }
 }

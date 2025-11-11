@@ -4,13 +4,12 @@ import src.Niveles.NivelSupervivencia;
 
 public class Supervivencia extends ModoDeJuego{
     
-    public Supervivencia(String ruta) {
-        super(ruta);
-
+    public Supervivencia() {
+     
     }
 
-    public String getRuta(){
-        return ruta;
+    public String getNombre(){
+        return "SUPERVIVENCIA";
 
     }
      public Nivel getNivel(){

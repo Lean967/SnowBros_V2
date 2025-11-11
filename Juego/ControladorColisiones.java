@@ -1,34 +1,43 @@
 package src.Juego;
 
-import java.util.ArrayList;
+import java.awt.Rectangle;
+import java.util.LinkedList;
 import java.util.List;
-
 import src.Enemigo.Enemigo;
 import src.Jugador.SnowBro;
 import src.Municiones.Municion;
 import src.Niveles.Nivel;
-import src.Visitor.Colisionable;
+import src.Obstaculos.Obstaculo;
+import src.Plataformas.Plataforma;
+import src.Powers.PowerUp;
 
 public class ControladorColisiones {
     protected Nivel nivel;
+    protected List<Plataforma> plataformas;
+    protected List<Obstaculo> obstaculos;
+    protected List<PowerUp> powerUps;
+    protected List<Enemigo> enemigos;
+    protected List<Municion> municiones;
 
     public ControladorColisiones(Nivel nivel){
         this.nivel = nivel;
     }
 
     public void detectarColisiones(){
-        List<Entidad> pasivos = new ArrayList<>();
-        List<Enemigo> enemigos = new ArrayList<>();
-        List<Municion> municiones = new ArrayList<>();
+        plataformas = new LinkedList<>();
+        obstaculos = new LinkedList<>();
+        powerUps = new LinkedList<>();
+        enemigos = new LinkedList<>();
+        municiones = new LinkedList<>();
 
-        for(Entidad  plataforma: nivel.getPlataformas()){
-            pasivos.add(plataforma);
+        for(Plataforma  plataforma: nivel.getPlataformas()){
+            plataformas.add(plataforma);
         }
-        for(Entidad obstaculo: nivel.getObstaculos()){
-            pasivos.add(obstaculo);
+        for(Obstaculo obstaculo: nivel.getObstaculos()){
+            obstaculos.add(obstaculo);
         }
-        for(Entidad powerUp : nivel.getPowers()){
-            pasivos.add(powerUp);
+        for(PowerUp powerUp : nivel.getPowers()){
+            powerUps.add(powerUp);
         }
         for(Enemigo enemigo: nivel.getEnemigos()){
             enemigos.add(enemigo);
@@ -41,61 +50,94 @@ public class ControladorColisiones {
         //Colisiones SnowBro - Enemigos
         for(Enemigo enemigo : enemigos){
             if(estanColisionando(snowBro, enemigo)){
-                enemigo.aceptarColision(snowBro);
+                //System.out.println("Snowbro esta colisionando con Enemigo");
+                enemigo.aceptarColision(snowBro.getColisionador());
             }
         }
 
         //Colisiones SnowBro - Proyectiles
-        for(Municion municion : municiones){
+       /*  for(Municion municion : municiones){
             if(estanColisionando(snowBro, municion)){
-                snowBro.aceptarColision(municion);
+                snowBro.aceptarColision(municion.getColisionador());
             }
-        }
+        }*/
 
         //Colisiones SnowBro - Pasivos
-        for(Entidad pasivo : pasivos){
-            if(estanColisionando(snowBro, pasivo)){
-                pasivo.aceptarColision(snowBro);
+        for(Plataforma plataforma : plataformas){
+            if(estanColisionando(snowBro, plataforma)){
+                //System.out.println("Snowbro esta colisionando con Plataforma");
+                plataforma.aceptarColision(snowBro.getColisionador());
             }
         }
+        
+        for(Obstaculo obstaculo : obstaculos){
+            if(estanColisionando(snowBro, obstaculo)){
+                //System.out.println("Snowbro esta colisionando con Obstaculo");
+                obstaculo.aceptarColision(snowBro.getColisionador());
+            }
+        }
+        for(PowerUp powerUp : powerUps){
+            if(estanColisionando(snowBro, powerUp)){
+                //System.out.println("Snowbro esta colisionando con PowerUp");
+                powerUp.aceptarColision(snowBro.getColisionador());
+            }
+        }
+        
 
         //colisiones Enemigos - Proyectiles
-        for(Enemigo enemigo : enemigos){
+       for(Enemigo enemigo : enemigos){
             for(Municion municion : municiones){
                 if(estanColisionando(enemigo, municion)){
-                    enemigo.aceptarColision(municion);
+                    enemigo.aceptarColision(municion.getColisionador());
                 }
             }
         }
 
-        //colisiones Enemigos - Pasivos
+        //colisiones Enemigos - Plataformas
         for(Enemigo enemigo : enemigos){
-            for(Entidad pasivo : pasivos){
-                if(estanColisionando(enemigo, pasivo)){
-                    pasivo.aceptarColision(enemigo);
+            for(Plataforma plataforma : plataformas){
+                if(estanColisionando(enemigo, plataforma)){
+                    plataforma.aceptarColision(enemigo.getColisionador());
                 }
             }
         }
+
+        //colisiones Enemigos - Obstaculos
+        for(Enemigo enemigo : enemigos){
+            for(Obstaculo obstaculo : obstaculos){
+                if(estanColisionando(enemigo, obstaculo)){
+                    obstaculo.aceptarColision(enemigo.getColisionador());
+                }
+            }
+        }
+
+        //colisiones Enemigos - Enemigos
+        for(Enemigo enemigo1 : enemigos){
+            for(Enemigo enemigo2 : enemigos){
+                if(enemigo1 != enemigo2 && estanColisionando(enemigo1, enemigo2)){
+                    enemigo1.aceptarColision(enemigo2.getColisionador());
+                }
+            }
+        }
+
+        //colisiones Municiones - Plataformas
+        for(Municion municion : municiones){
+            for(Plataforma plataforma : plataformas){
+                if(estanColisionando(municion, plataforma)){
+                    plataforma.aceptarColision(municion.getColisionador());
+                }
+            }
+        }
+
+
     }
 
     protected boolean estanColisionando(Entidad entidad1, Entidad entidad2) {
-        // --- DEBES REEMPLAZAR ESTO ---
-        int anchoEntidad1 = 48; // Reemplazar con e1.getAncho()
-        int altoEntidad1 = 48;  // Reemplazar con e1.getAlto()
-        int anchoEntidad2 = 48; // Reemplazar con e2.getAncho()
-        int altoEntidad2 = 48;  // Reemplazar con e2.getAlto()
-        // -----------------------------
 
-        int xEntidad1 = entidad1.getPosicion().getX();
-        int yEntidad1 = entidad1.getPosicion().getY();
-        int xEntidad2 = entidad2.getPosicion().getX();
-        int yEntidad2 = entidad2.getPosicion().getY();
+        Rectangle rectanguloEntidad1 = entidad1.getBounds();
+        Rectangle rectanguloEntidad2 = entidad2.getBounds(); 
 
-        // Lógica de colisión AABB
-        return (xEntidad1 < xEntidad2 + anchoEntidad2 &&
-                xEntidad1 + anchoEntidad1 > xEntidad2 &&
-                yEntidad1 < yEntidad2 + altoEntidad2 &&
-                yEntidad1 + altoEntidad1 > yEntidad2);
-    
-        }
+        return rectanguloEntidad1.intersects(rectanguloEntidad2);
+    }
+        
 }

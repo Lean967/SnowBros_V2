@@ -4,12 +4,11 @@ import src.Niveles.NivelClasico;
 
 public class Clasico extends ModoDeJuego {
 
-    public Clasico(String ruta) {
-        super(ruta);
+    public Clasico() {
     }
 
-    public String getRuta(){
-        return ruta;
+    public String getNombre(){
+        return "CLASICO";
     }
 
     public Nivel getNivel(){

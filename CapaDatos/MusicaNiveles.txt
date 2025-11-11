@@ -1,0 +1,8 @@
+# Música en Bucle
+src/Sonidos/modo-clasico.wav= CLASICO_NIVEL_1_MUSICA
+
+# Efectos de Sonido (SFX)
+src/Sonidos/bola-nieve-colision-pared.wav = BOLADENIEVE_COLISION_PARED
+src/Sonidos/game-over.wav = GAME_OVER
+src/Sonidos/snow-muerto.wav= SNOW_PERDER_VIDA
+src/Sonidos/snow-disparo.wav= SNOW_DISPARO_BOLADENIEVE

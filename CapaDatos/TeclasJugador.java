@@ -1,14 +1,12 @@
 package src.CapaDatos;
 
-import java.awt.event.KeyAdapter;//permite eschuchar los eventos del teclado
 import java.awt.event.KeyEvent;//representa un evento de teclado. Cada vez que el usuario presiona, suelta o escribe una tecla, se genera un KeyEvent que nos permite saber que tecla se presionó
 import java.awt.event.KeyListener;
 
-import src.Juego.Entidad;
 import src.Jugador.SnowBro;
 
 public class TeclasJugador implements KeyListener{
-    private boolean arriba, abajo, izquierda, derecha,quieto;
+    private boolean arriba, abajo, izquierda, derecha, quieto, espacioPresionado;
     protected SnowBro snowbro;
     protected int direccion;
 
@@ -17,10 +15,8 @@ public class TeclasJugador implements KeyListener{
         abajo = false;
         izquierda = false;
         derecha = false;
-        quieto=true;
-
+        espacioPresionado=false;
         this.snowbro = snowbro;
-        this.direccion = ConstantesTeclado.Quieto; 
     }
 
     public void keyPressed(KeyEvent e) {
@@ -37,6 +33,12 @@ public class TeclasJugador implements KeyListener{
                 break;
             case KeyEvent.VK_D:
                 derecha = true;
+                break;
+            case KeyEvent.VK_SPACE:
+                if(!espacioPresionado){
+                    espacioPresionado = true;
+                    snowbro.espacioPresionado();
+                }
                 break;
         }
     }
@@ -56,6 +58,10 @@ public class TeclasJugador implements KeyListener{
             case KeyEvent.VK_D:
                 derecha = false;
                 break;
+            case KeyEvent.VK_SPACE:
+                espacioPresionado = false;
+                break;
+
         }
     }
     public void keyTyped(KeyEvent e) {}
@@ -71,17 +77,17 @@ public class TeclasJugador implements KeyListener{
     public boolean getDerecha(){
         return derecha;
     }
+    public boolean getQuieto(){
+        return quieto;
+    }
 
-    public int get_direccion(){
-        if(arriba) return -1;
-        if(abajo) return 1;
-        if(izquierda) return -10;
-        if(derecha) return 10;
-        if(quieto) return 0;
-        return 0;
+    public boolean getEspacioPresionado(){
+        return espacioPresionado;
     }
 
     public SnowBro getSnowBro(){
         return snowbro;
     }
+
+    
 }

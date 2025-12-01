@@ -31,7 +31,7 @@ public class ConstantesTeclado {
     public static final int TIEMPO_POCION_AZUL = 300;
     public static final int TIEMPO_POCION_VERDE = 240;
     public static final int ANIMACION_PERDER_VIDA = 90;
-    public static final int TIEMPO_APARICION_CALABAZA=600;
+    public static final int TIEMPO_APARICION_CALABAZA=1500;
     public static final int TIEMPO_POWERUPS_EN_NIVEL = 360;
     public static final int TIEMPO_DISPARO_RANA = 180;
     public static final int FUERZA_SALTO_TROLLAMARILLO = -15;

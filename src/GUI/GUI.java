@@ -62,6 +62,10 @@ public class GUI implements ControladorGrafica, ControladorVistas {
     public void iniciarJuego(){
         controladorJuego.iniciar();
     }
+
+    public void intentarDeNuevo(){
+        controladorJuego.intentarDeNuevo();
+    }
     public void iniciarHiloJuego(){
         controladorJuego.iniciarCicloDeJuego();
     }
@@ -109,8 +113,13 @@ public class GUI implements ControladorGrafica, ControladorVistas {
         return observerJugador;
     }
 
-    public Observer registrarEntidad(EntidadLogica entidad){
-        Observer observerEntidad = panelPartida.incorporarEntidad(entidad);
+    public Observer registrarEntidadEstatica(EntidadLogica entidad){
+        Observer observerEntidad = panelPartida.incorporarEntidadEstatica(entidad);
+        actualizarGUI();
+        return observerEntidad;
+    }
+    public Observer registrarEntidadEnemigo(EntidadLogica enemigo){
+        Observer observerEntidad = panelPartida.incorporarEntidadEnemigo(enemigo);
         actualizarGUI();
         return observerEntidad;
     }
@@ -166,6 +175,10 @@ public class GUI implements ControladorGrafica, ControladorVistas {
     public void mostrarPantallaModoJuego(){
         ventana.setContentPane(panelModoJuego);
         actualizarGUI();
+    }
+
+    public void actualizarIndiceNivel(int nivel){
+        panelPartida.actualizarIndicadorNivel(nivel);
     }
 
     protected void actualizarGUI() {

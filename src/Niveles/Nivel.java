@@ -283,7 +283,7 @@ public abstract class Nivel {
         calabaza.setNivelActual(this);
         listaEntidades.add(calabaza);
         enemigos.add(calabaza);
-        juego.registrarObserverNuevaEntidad(calabaza);
+        juego.registrarObserverNuevaEntidadEnemigo(calabaza);
     }
     public void setTrollAmarillo(int x, int y){
         TrollAmarillo trollAmarillo = fabricaEntidades.getTrollAmarillo(new Posicion(x, y));
@@ -294,7 +294,7 @@ public abstract class Nivel {
     public void setFantasma(int x, int y){
         Fantasma fantasma = fabricaEntidades.getFantasma(new Posicion(x, y));
         fantasma.setNivelActual(this);
-        juego.registrarObserverNuevaEntidad(fantasma);
+        juego.registrarObserverNuevaEntidadEnemigo(fantasma);
         listaEntidades.add(fantasma);
         enemigos.add(fantasma);
     }
@@ -370,7 +370,7 @@ public abstract class Nivel {
     public void setBolaDeNieve(int x, int y, int daño){
         Municion bolaDeNieve = fabricaEntidades.getBolaDeNieve(new Posicion(x, y));
         bolaDeNieve.setNivelActual(this);
-        juego.registrarObserverNuevaEntidad(bolaDeNieve);
+        juego.registrarObserverNuevaEntidadEnemigo(bolaDeNieve);
         if(snowBro.getMirar() == ConstantesTeclado.MIRANDO_DERECHA){
             bolaDeNieve.setPasoX(12);
         } else {
@@ -384,7 +384,7 @@ public abstract class Nivel {
     public void setBolaDeFuego(int x, int y, int direccion){
         Municion bolaDeFuego = fabricaEntidades.getBolaDeFuego(new Posicion(x, y));
         bolaDeFuego.setNivelActual(this);
-        juego.registrarObserverNuevaEntidad(bolaDeFuego);
+        juego.registrarObserverNuevaEntidadEnemigo(bolaDeFuego);
         if(direccion == ConstantesTeclado.MIRANDO_DERECHA){
             bolaDeFuego.setPasoX(6);
         }else{
@@ -399,7 +399,7 @@ public abstract class Nivel {
     public void setBolaDeFuego(int x, int y, int direccion, int ancho, int alto){
         Municion bolaDeFuego = fabricaEntidades.getBolaDeFuego(new Posicion(x, y));
         bolaDeFuego.setNivelActual(this);
-        juego.registrarObserverNuevaEntidad(bolaDeFuego);
+        juego.registrarObserverNuevaEntidadEnemigo(bolaDeFuego);
         if(direccion == ConstantesTeclado.MIRANDO_DERECHA){
             bolaDeFuego.setPasoX(6);
         }else{
@@ -416,7 +416,7 @@ public abstract class Nivel {
     public void setBomba(int x, int y, int direccion){
         Municion bomba = fabricaEntidades.getBomba(new Posicion(x, y));
         bomba.setNivelActual(this);
-        juego.registrarObserverNuevaEntidad(bomba);
+        juego.registrarObserverNuevaEntidadEnemigo(bomba);
         int velocidadX = ThreadLocalRandom.current().nextInt(2, 10);
         int velocidadY = -ThreadLocalRandom.current().nextInt(20, 30);
         if(direccion == ConstantesTeclado.MIRANDO_DERECHA){
@@ -516,7 +516,7 @@ public abstract class Nivel {
                 case 4: power= setPocionVerde(posEnemigoEliminado.getX(), posEnemigoEliminado.getY()); break;
                 case 5: power= setVidaExtra(posEnemigoEliminado.getX(), posEnemigoEliminado.getY()); break;
             }
-            juego.registrarObserverNuevaEntidad(power);
+            juego.registrarObserverNuevaEntidadEstatica(power);
 
         }
 

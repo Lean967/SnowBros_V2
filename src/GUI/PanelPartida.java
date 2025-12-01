@@ -6,6 +6,7 @@ import src.CapaDatos.ConstantesVistas;
 import src.CapaDatos.TeclasJugador;
 import src.GUI.InterfacesGUI.ControladorVistas;
 import src.GUI.Observers.Observer;
+import src.GUI.Observers.ObserverPersonaje;
 import src.GUI.Observers.ObserverGrafico;
 import src.GUI.Observers.ObserverJugador;
 import src.Juego.EntidadLogica;
@@ -159,8 +160,18 @@ public class PanelPartida extends PanelVista{
         return observerJugador;
     }
 
-    public Observer incorporarEntidad(EntidadLogica entidad){
+    public Observer incorporarEntidadEstatica(EntidadLogica entidad){
         ObserverGrafico observerEntidad = new ObserverGrafico( entidad);
+        imagenJuego.add(observerEntidad);
+
+        observerEntidad.update();
+
+        actualizar();
+        return observerEntidad;
+    }
+
+    public Observer incorporarEntidadEnemigo(EntidadLogica enemigo){
+        ObserverPersonaje observerEntidad = new ObserverPersonaje(enemigo);
         imagenJuego.add(observerEntidad);
 
         observerEntidad.update();
@@ -215,7 +226,7 @@ public class PanelPartida extends PanelVista{
 
     public void limpiarEntidades(){
         if (imagenJuego != null) {
-        imagenJuego.removeAll(); // Elimina todos los Observers (entidades gráficas)
+            imagenJuego.removeAll(); // Elimina todos los Observers (entidades gráficas)
         }
         if (imagenJuego != null) {
             remove(imagenJuego);

@@ -15,6 +15,7 @@ public interface ControladorVistas {
     public void mostrarPantallaModoJuego();
     public void cambiarModoDeJuego(ModoDeJuego modo);
     public void setNombreJugador(String nombreJugador);
+    public void intentarDeNuevo();
     public String getNombreJugador();
     public void setDominio(FabricaSprites fabrica);
 }

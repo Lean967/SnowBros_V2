@@ -13,5 +13,6 @@ public interface ControladorDeJuego {
     public void cortarJuego();
     public Nivel getNivelActual();
     public void setNombreJugador(String nombreJugador);
+    public void intentarDeNuevo();
     public String getNombreJugador();
 }

@@ -35,14 +35,16 @@ public class EstadoLogicoSnowBroNormal  {
                 posicion.setX(-10);
             else
                 posicion.setX(posicion.getX() - snowBro.getPasoX());
-                snowBro.setMirar(ConstantesTeclado.MIRANDO_IZQUIERDA); 
+
+            snowBro.setMirar(ConstantesTeclado.MIRANDO_IZQUIERDA); 
         }
         if (teclas.getDerecha()) {
             if(posicion.getX() + snowBro.getPasoX() > 760)
                 posicion.setX(760);
             else 
                 posicion.setX(posicion.getX() + snowBro.getPasoX());
-                snowBro.setMirar(ConstantesTeclado.MIRANDO_DERECHA);
+
+            snowBro.setMirar(ConstantesTeclado.MIRANDO_DERECHA);
         }
 
         if(snowBro.getCayendo()){
@@ -88,17 +90,19 @@ public class EstadoLogicoSnowBroNormal  {
       if(snowBro.getCayendo()){
         snowBro.getEstadoSpritesSnowBro().getSprites().setEstadoActual(ConstantesTeclado.SALTANDO);
       } 
-      else {if (snowBro.getTeclasJugador().getIzquierda()) {
-               snowBro.getEstadoSpritesSnowBro().getSprites().setEstadoActual(ConstantesTeclado.MOVIENDOSE_IZQUIERDA);
-            } 
-            else if (snowBro.getTeclasJugador().getDerecha()) {
-                    snowBro.getEstadoSpritesSnowBro().getSprites().setEstadoActual(ConstantesTeclado.MOVIENDOSE_DERECHA);
-                 } 
-                 else if (!teclasMovimiento) {
-                    if(snowBro.getMirar()==ConstantesTeclado.QUIETOIZQUIERDA)
-                        snowBro.getEstadoSpritesSnowBro().getSprites().setEstadoActual(ConstantesTeclado.QUIETOIZQUIERDA);
-                    else snowBro.getEstadoSpritesSnowBro().getSprites().setEstadoActual(ConstantesTeclado.QUIETODERECHA);
-                 }
+      else {
+        if (snowBro.getTeclasJugador().getIzquierda()) {
+            snowBro.getEstadoSpritesSnowBro().getSprites().setEstadoActual(ConstantesTeclado.MOVIENDOSE_IZQUIERDA);
+        } 
+        else if (snowBro.getTeclasJugador().getDerecha()) {
+            snowBro.getEstadoSpritesSnowBro().getSprites().setEstadoActual(ConstantesTeclado.MOVIENDOSE_DERECHA);
+        } 
+        else if (!teclasMovimiento) {
+            if(snowBro.getMirar()==ConstantesTeclado.MIRANDO_IZQUIERDA)
+                snowBro.getEstadoSpritesSnowBro().getSprites().setEstadoActual(ConstantesTeclado.QUIETOIZQUIERDA);
+            else 
+                snowBro.getEstadoSpritesSnowBro().getSprites().setEstadoActual(ConstantesTeclado.QUIETODERECHA);
+        }
       }
     }
  

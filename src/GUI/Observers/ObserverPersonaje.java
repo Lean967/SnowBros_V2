@@ -6,14 +6,14 @@ import javax.swing.ImageIcon;
 
 import src.Juego.EntidadLogica;
 
-public class ObserverEnemigo extends ObserverGrafico {
+public class ObserverPersonaje extends ObserverGrafico {
 
 
-    public ObserverEnemigo(EntidadLogica enemigoObservado) {
+    public ObserverPersonaje(EntidadLogica enemigoObservado) {
         super(enemigoObservado);
         this.entidadObservada = enemigoObservado;
         setOpaque(false);
-        update();
+        //update();
     }
 
     public void update() {

@@ -60,7 +60,7 @@ public class PanelGameOver extends PanelVista{
 
         botonTryAgain.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                controladorVistas.iniciarJuego();
+                controladorVistas.intentarDeNuevo();
             }
         });
 

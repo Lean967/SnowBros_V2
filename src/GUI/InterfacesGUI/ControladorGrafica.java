@@ -14,7 +14,8 @@ public interface ControladorGrafica {
     public void mostrarPantallaInicio();
     public void mostrarPantallaDominioAplicacion();
     public void registrarControladorDeJuego(ControladorDeJuego juego);
-    public Observer registrarEntidad(EntidadLogica entidad);
+    public Observer registrarEntidadEstatica(EntidadLogica entidad);
+    public Observer registrarEntidadEnemigo(EntidadLogica enemigo);
     public Observer registrarSnowBro(SnowBro snowBro);
     public void configurarVentana();
     public void configurarControles(SnowBro snowBro);
@@ -25,5 +26,6 @@ public interface ControladorGrafica {
     public void setPanelRanking(Ranking ranking);
     public void limpiarEntidadesPartida();
     public void ganarJuego();
+    public void actualizarIndiceNivel(int nivel);
     public Object getPanelPartida();
 }

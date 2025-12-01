@@ -12,7 +12,7 @@ public class AdministradorNivel {
    public AdministradorNivel(String ruta, FabricaEntidades fabricaEntidades){
       this.rutaArchivoTexto=ruta;
       this.fabrica=fabricaEntidades;
-      this.indiceNivelActual = 1;
+      this.indiceNivelActual = 0;
    }
 
    public String getRuta(){
@@ -21,6 +21,7 @@ public class AdministradorNivel {
 
    public Nivel getSiguienteNivel(ModoDeJuego modoDeJuego){
       LectorDeNivel lector = new LectorDeNivel();
+      indiceNivelActual++;
       nivel = lector.generarNivel(rutaArchivoTexto, fabrica, modoDeJuego, indiceNivelActual);
       return nivel;
    }

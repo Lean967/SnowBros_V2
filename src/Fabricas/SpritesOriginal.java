@@ -62,7 +62,7 @@ public class SpritesOriginal extends FabricaSprites{
         mapeoSprites.put(ConstantesTeclado.QUIETOIZQUIERDA, rutaASprites+"/calabaza/CalabazaQuietoIzquierda.png");
         mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA, rutaASprites+"/calabaza/CalabazaMoverDerecha.png");
         mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+"/calabaza/CalabazaMoverIzquierda.png");
-        return (new Sprites (mapeoSprites, ConstantesTeclado.QUIETO));
+        return (new Sprites (mapeoSprites, ConstantesTeclado.QUIETODERECHA));
     }
 
     public Sprites getSpritesSnowBro(){

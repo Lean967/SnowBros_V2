@@ -81,16 +81,15 @@ public class Juego implements ControladorDeJuego{
 
     public void iniciar() {
         this.administradorNivel = new AdministradorNivel(rutaArchivoTexto, fabricaEntidades);
-        administradorNivel.setIndiceNivelActual(1);
-        controladorGrafica.agregarImagenFondoPartida(rutaFondosNiveles+modoDeJuego.getNombre()+administradorNivel.getIndiceNivelActual()+".png");
         siguienteNivel(); 
     }
-    
-    public void iniciarCicloDeJuego(){
-        hiloJuego = new HiloJuego("HiloJuego");
-        this.hiloJuego.setJuego(this);
-        hiloJuego.start();
+
+    public void intentarDeNuevo(){
+        nivelActual = administradorNivel.getNivelActual();
+        configurarNivel();
+        iniciarNivel();
     }
+    
 
     public void detenerHiloJuego(){
         if (hiloJuego != null) {  
@@ -107,7 +106,6 @@ public class Juego implements ControladorDeJuego{
     }
     public void ganarNivel(){
         agregarJugadorRanking(jugador.getNombre(), jugador.getSnowBro().getPuntaje());
-        administradorNivel.sumarIndiceNivel();
 
         if(nivelActual != null){
             nivelActual.borrarEntidades();
@@ -124,6 +122,12 @@ public class Juego implements ControladorDeJuego{
         
     }
 
+    public void iniciarCicloDeJuego(){
+        hiloJuego = new HiloJuego("HiloJuego");
+        this.hiloJuego.setJuego(this);
+        hiloJuego.start();
+    }
+
     public void perderNivel(){
         agregarJugadorRanking(jugador.getNombre(),jugador.getSnowBro().getPuntaje());
         jugador.getSnowBro().setPuntaje(0);
@@ -137,36 +141,39 @@ public class Juego implements ControladorDeJuego{
         });
         snowBro=null;
         gestorSonido.reproducirSonido("GAME_OVER");
-        
     }
 
     public void siguienteNivel(){    
         nivelActual = administradorNivel.getSiguienteNivel(modoDeJuego);
         if(nivelActual != null){
             controladorGrafica.limpiarEntidadesPartida();
-            controladorGrafica.agregarImagenFondoPartida(rutaFondosNiveles+modoDeJuego.getNombre()+administradorNivel.getIndiceNivelActual()+".png");
-            nivelActual.setJuego(this);
-            nivelActual.setModoDeJuego(modoDeJuego);
-            modoDeJuego.setNivel(nivelActual);
-
-            if(snowBro==null)
-                jugador.setSnowBro(administradorNivel.getNivelActual().getSnowBro());
-            else administradorNivel.getNivelActual().setSnowBro(snowBro);
-
+            configurarNivel();
             
-            nivelActual.iniciarNivel();
-            registrarObservers();
-
-            controladorGrafica.mostrarPantallaPartida();
-            ((PanelPartida) controladorGrafica.getPanelPartida()).actualizarIndicadorNivel(administradorNivel.getIndiceNivelActual());
-
-            iniciarCicloDeJuego();
-            
-            
+            iniciarNivel();
         }else{
             snowBro.setPuntaje(0);
             ganarJuego();
         }
+    }
+
+    public void configurarNivel(){
+        controladorGrafica.agregarImagenFondoPartida(rutaFondosNiveles+modoDeJuego.getNombre()+administradorNivel.getIndiceNivelActual()+".png");
+        nivelActual.setJuego(this);
+        nivelActual.setModoDeJuego(modoDeJuego);
+        modoDeJuego.setNivel(nivelActual);
+
+        jugador.setSnowBro(nivelActual.getSnowBro());
+        snowBro = nivelActual.getSnowBro();
+    }
+
+    public void iniciarNivel(){
+        nivelActual.iniciarNivel();
+        registrarObservers();
+
+        controladorGrafica.mostrarPantallaPartida();
+        controladorGrafica.actualizarIndiceNivel(administradorNivel.getIndiceNivelActual());
+
+        iniciarCicloDeJuego();
     }
 
     public void ganarJuego(){
@@ -243,11 +250,17 @@ public class Juego implements ControladorDeJuego{
 
     protected void registrarObservers(){
         registrarObserverJugador(nivelActual.getSnowBro());
-        registrarObserverEntidades(nivelActual.getEntidades());
+        registrarObserverEnemigos(nivelActual.getEnemigos());
+        registrarObserversEstaticos(nivelActual.getObstaculos());
+        registrarObserversEstaticos(nivelActual.getPlataformas());
     }
 
-    public void registrarObserverNuevaEntidad(Entidad entidad){
-        Observer observerEntidad = controladorGrafica.registrarEntidad(entidad);
+    public void registrarObserverNuevaEntidadEstatica(Entidad entidad){
+        Observer observerEntidad = controladorGrafica.registrarEntidadEstatica(entidad);
+        entidad.registrarObserver(observerEntidad);
+    }
+    public void registrarObserverNuevaEntidadEnemigo(Entidad entidad){
+        Observer observerEntidad = controladorGrafica.registrarEntidadEnemigo(entidad);
         entidad.registrarObserver(observerEntidad);
     }
 
@@ -261,12 +274,18 @@ public class Juego implements ControladorDeJuego{
 
     }
 
-    protected void registrarObserverEntidades(Iterable<Entidad> entidades){
-        for (Entidad entidad : entidades) {
-            Observer observerEntidad = controladorGrafica.registrarEntidad(entidad);
+    protected void registrarObserversEstaticos(Iterable<? extends Entidad> estaticos){
+        for (Entidad entidad : estaticos) {
+            Observer observerEntidad = controladorGrafica.registrarEntidadEstatica(entidad);
             entidad.registrarObserver(observerEntidad);
         }
-        
+    }
+
+    protected void registrarObserverEnemigos(Iterable<? extends Entidad> enemigos){
+        for (Entidad entidad : enemigos) {
+            Observer observerEntidad = controladorGrafica.registrarEntidadEnemigo(entidad);
+            entidad.registrarObserver(observerEntidad);
+        }
     }
 
     public void setFabricaEntidades(FabricaEntidades fabrica){
@@ -280,7 +299,6 @@ public class Juego implements ControladorDeJuego{
 
 
     public void reiniciarNivel(){
-
         jugador.getSnowBro().setPosicionInicial();
         jugador.getSnowBro().setEstadoLogico(new EstadoLogicoSnowBroInmune(jugador.getSnowBro()));
     }

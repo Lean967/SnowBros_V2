@@ -1,0 +1,31 @@
+# Música en Bucle
+src/Sonidos/modo-clasico.wav= CLASICO_NIVEL_MUSICA
+src/Sonidos/game-win.wav= JUEGO_GANADO
+src/Sonidos/modo-contrarreloj.wav= CONTRARRELOJ_NIVEL_MUSICA
+src/Sonidos/modo-supervivencia.wav=SUPERVIVENCIA_NIVEL_MUSICA
+src/Sonidos/menu.wav= PANELES_MUSICA
+
+
+
+
+
+# Efectos de Sonido (SFX)
+src/Sonidos/bola-nieve-colision-pared.wav = BOLADENIEVE_COLISION_PARED
+src/Sonidos/game-over.wav = GAME_OVER
+src/Sonidos/snow-muerto.wav= SNOW_PERDER_VIDA
+src/Sonidos/snow-disparo.wav= SNOW_DISPARO_BOLADENIEVE
+src/Sonidos/game-over.wav= GAME_OVER
+src/Sonidos/game-win.wav= GAME_WIN
+src/Sonidos/enemigo-muerto.wav= ENEMIGO_MUERTO
+src/Sonidos/ranking-fondo.wav= RANKING
+src/Sonidos/snow-aparicion.wav= APARECE_SNOW
+src/Sonidos/snow-empuje.wav= EMPUJE_SNOW
+src/Sonidos/snow-salto.wav= SALTO_SNOW
+src/Sonidos/snow-muerto.wav= MUERTE_SNOW
+src/Sonidos/start-boton.wav=BOTON_START
+src/Sonidos/power-up-fruta.wav= POWER_FRUTA
+src/Sonidos/power-up-pocion.wav= POWER_POCION
+src/Sonidos/power-up-vida-extra.wav= POWER_VIDA_EXTRA
+src/Sonidos/boss-nivel.wav=APARICION_JEFE
+src/Sonidos/boss-muerte.wav=MUERTE_JEFE
+src/Sonidos/bola-nieve-colision-pared.wav= MUERTE_ENEMIGOCONGELADO

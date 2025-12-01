@@ -1,0 +1,128 @@
+package src.Enemigo;
+
+import src.Jugador.SnowBro;
+import src.Municiones.BolaDeFuego;
+import src.Municiones.BolaDeNieve;
+import src.Municiones.Bomba;
+import src.Municiones.Municion;
+import src.Obstaculos.Escalera;
+import src.Obstaculos.Pared;
+import src.Obstaculos.ParedDestructible;
+import src.Obstaculos.SueloResbaladizo;
+import src.Obstaculos.Trampa;
+import src.Plataformas.Estatica;
+import src.Plataformas.Movediza;
+import src.Plataformas.Quebradiza;
+import src.Powers.Fruta;
+import src.Powers.PocionAzul;
+import src.Powers.PocionRoja;
+import src.Powers.PocionVerde;
+import src.Powers.VidaExtra;
+import src.Visitor.Colisionador;
+
+public class ColisionadorKamakichi implements Colisionador{
+    protected Kamakichi kamakichi;
+
+    public ColisionadorKamakichi(Kamakichi kama){
+        kamakichi=kama;
+    }
+
+    public void colisionar(Estatica estatica){
+    }
+
+    public void colisionar(Pared pared) {
+        kamakichi.setPasoX(kamakichi.getPasoX() * (-1));
+    }
+
+    public void colisionar(Movediza movediza) {
+        
+    }
+
+
+    public void colisionar(Quebradiza quebradiza) {
+        
+    }
+
+
+    public void colisionar(BolaDeNieve bolaDeNieve) {
+        
+    }
+
+
+    public void colisionar(Calabaza calabaza) {
+
+    }
+
+    public void colisionar(PocionRoja pocionRoja) {
+        
+    }
+
+
+    public void colisionar(Escalera escalera) {
+    }
+
+
+    public void colisionar(ParedDestructible paredDestructible) {
+        
+    }
+
+
+    public void colisionar(SueloResbaladizo sueloResbaladizo) {
+        
+    }
+
+
+    public void colisionar(Trampa trampa) {
+        
+    }
+
+    public void colisionar(Municion municion) {
+       
+    }
+
+    public void colisionar(SnowBro snowBro) {
+        snowBro.perderVida();
+    }
+
+    public void colisionar(DemonioRojo demonio) {
+        demonio.hacerEfecto(kamakichi);
+    }
+
+    public void colisionar(Fruta fruta) {
+    }
+
+    public void colisionar(PocionAzul pocionAzul) {
+    }
+
+    public void colisionar(PocionVerde pocionVerde) {
+    }
+
+    public void colisionar(VidaExtra vidaExtra) {
+    }
+
+    public void colisionar(TrollAmarillo trollAmarillo) {
+        trollAmarillo.hacerEfecto(kamakichi);
+    }
+
+    public void colisionar(RanaDeFuego ranaDeFuego) {
+        ranaDeFuego.hacerEfecto(kamakichi);
+    }
+
+    public void colisionar(BolaDeFuego bolaDeFuego) {
+    }
+
+    public void colisionar(Fantasma fantasma) {
+
+    }
+
+    public void colisionar(Bomba bomba) {
+        
+    }
+
+    public void colisionar(Kamakichi kamakichi) {
+    }
+
+
+    public void colisionar(Moghera moghera) {
+    }
+}

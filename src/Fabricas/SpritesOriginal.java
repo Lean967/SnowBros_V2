@@ -207,9 +207,9 @@ public class SpritesOriginal extends FabricaSprites{
 
     public Sprites getSpritesKamakichi() {
         Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.ATACANDO, rutaASprites+ "/Kamakichi/kamakichi-atacando.giff");
-        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+ "/Kamakichi/kamakichi-capa-2.gif");
-        mapeoSprites.put(ConstantesTeclado.SALTANDO, rutaASprites+ "/Kamakichi/kamakichi-movimiento-vertical.gif");
+        mapeoSprites.put(ConstantesTeclado.ATACANDO, rutaASprites+ "/Kamakichi/kamakichi-movimiento-vertical_foto.jpg");
+        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+ "/Kamakichi/kamakichi-movimiento-vertical_foto.jpg");
+        mapeoSprites.put(ConstantesTeclado.SALTANDO, rutaASprites+ "/Kamakichi/kamakichi-movimiento-vertical_foto.jpg");
         return (new Sprites(mapeoSprites, ConstantesTeclado.QUIETO));
     }
 

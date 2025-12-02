@@ -21,14 +21,19 @@ public class ControladorColisiones {
 
     public ControladorColisiones(Nivel nivel){
         this.nivel = nivel;
-    }
-
-    public void detectarColisiones(){
         plataformas = new LinkedList<>();
         obstaculos = new LinkedList<>();
         powerUps = new LinkedList<>();
         enemigos = new LinkedList<>();
         municiones = new LinkedList<>();
+    }
+
+    public void detectarColisiones(){
+        plataformas.clear();
+        obstaculos.clear();
+        powerUps.clear();
+        enemigos.clear();
+        municiones.clear();
 
         for(Plataforma  plataforma: nivel.getPlataformas()){
             plataformas.add(plataforma);

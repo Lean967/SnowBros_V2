@@ -206,7 +206,7 @@ public class Juego implements ControladorDeJuego{
             modoDeJuego.setNivel(nivelActual);
             nivelActual.setSnowBro(jugador.getSnowBro());
             nivelActual.getSnowBro().setPosicionInicial();
-            nivelActual.setJefeDeNivel(jefe); // Esto añade el jefe a la listaEntidades y enemigos
+            nivelActual.setJefeDeNivel(jefe);
             nivelActual.getJefeDeNivel().setNivelActual(nivelActual);
             nivelActual.setPuntajeObjetivo(puntajeObjetivo);
             nivelActual.setTiempoLimite(tiempoLimite);
@@ -216,8 +216,8 @@ public class Juego implements ControladorDeJuego{
             nivelActual.setPlataformaEstatica(-5, 530, 4, 800, 35); // Base del nivel
             
             // Plataformas
-            nivelActual.setPlataformaMovedizaAscensor(80, 450, 450, 200, 1, 100, 25,Movediza.Modo.VERTICAL);
-            nivelActual.setPlataformaMovedizaAscensor(620, 350, 400, 150, 1, 100, 25,Movediza.Modo.VERTICAL);
+            nivelActual.setPlataformaMovedizaAscensor(80, 450, 200, 450, 1, 100, 25,Movediza.Modo.VERTICAL);
+            nivelActual.setPlataformaMovedizaAscensor(620, 400, 150, 400, 1, 100, 25,Movediza.Modo.VERTICAL);
             nivelActual.setPlataformaQuebradiza(350, 400, 1, 100, 25);
             nivelActual.setPlataformaMovedizaLateral(10, 300, 10, 300, 1, 150, 25,Movediza.Modo.HORIZONTAL);
             nivelActual.setPlataformaMovedizaLateral(500, 200, 500, 750, 1, 150, 25,Movediza.Modo.HORIZONTAL);

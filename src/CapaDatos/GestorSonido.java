@@ -45,11 +45,11 @@ public class GestorSonido {
 
      // Reproduce efecto corto (una vez). 
     public void reproducirSonido(String archivoSonido) {
-        Clip clip = sonidos.get(archivoSonido);
+        /*Clip clip = sonidos.get(archivoSonido);
         if (clip != null) {
             clip.setFramePosition(0);
             clip.start();
-        }
+        }*/
     }
 
     public void invertirMute() {
@@ -94,11 +94,11 @@ public class GestorSonido {
 
     /** Reproduce música en bucle infinito. */
     public void reproducirMusica(String nombre) {
-        musicaActual = sonidos.get(nombre);
+        /*musicaActual = sonidos.get(nombre);
         if (musicaActual != null) {
             musicaActual.setFramePosition(0);
             musicaActual.loop(Clip.LOOP_CONTINUOUSLY);
-        }
+        }*/
     }
 
     /** Detiene música actual. */

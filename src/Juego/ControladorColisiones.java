@@ -29,7 +29,7 @@ public class ControladorColisiones {
     }
 
     public void detectarColisiones(){
-        plataformas.clear();
+        /*plataformas.clear();
         obstaculos.clear();
         powerUps.clear();
         enemigos.clear();
@@ -139,7 +139,97 @@ public class ControladorColisiones {
             }
         }
 
+        */
 
+
+        SnowBro snowBro = nivel.getSnowBro();
+
+        //Colisiones SnowBro - Enemigos
+        for(Enemigo enemigo : nivel.getEnemigos()){
+            if(estanColisionando(snowBro, enemigo)){
+                enemigo.aceptarColision(snowBro.getColisionador());
+            }
+        }
+
+        //Colisiones SnowBro - Proyectiles
+        for(Municion municion : nivel.getMuniciones()){
+            if(estanColisionando(snowBro, municion)){
+                snowBro.aceptarColision(municion.getColisionador());
+            }
+        }
+
+        //Colisiones SnowBro - Pasivos
+        for(Plataforma plataforma : nivel.getPlataformas()){
+            if(estanColisionando(snowBro, plataforma)){
+                plataforma.aceptarColision(snowBro.getColisionador());
+            }
+        }
+        
+        for(Obstaculo obstaculo : nivel.getObstaculos()){
+            if(estanColisionando(snowBro, obstaculo)){
+                obstaculo.aceptarColision(snowBro.getColisionador());
+            }
+        }
+        for(PowerUp powerUp : nivel.getPowers()){
+            if(estanColisionando(snowBro, powerUp)){
+                powerUp.aceptarColision(snowBro.getColisionador());
+            }
+        }
+        
+
+        //colisiones Enemigos - Proyectiles
+       for(Enemigo enemigo : nivel.getEnemigos()){
+            for(Municion municion : nivel.getMuniciones()){
+                if(estanColisionando(enemigo, municion)){
+                    enemigo.aceptarColision(municion.getColisionador());
+                }
+            }
+        }
+
+        //colisiones Enemigos - Plataformas
+        for(Enemigo enemigo : nivel.getEnemigos()){
+            for(Plataforma plataforma : nivel.getPlataformas()){
+                if(estanColisionando(enemigo, plataforma)){
+                    plataforma.aceptarColision(enemigo.getColisionador());
+                }
+            }
+        }
+
+        //colisiones Enemigos - Obstaculos
+        for(Enemigo enemigo : nivel.getEnemigos()){
+            for(Obstaculo obstaculo : nivel.getObstaculos()){
+                if(estanColisionando(enemigo, obstaculo)){
+                    obstaculo.aceptarColision(enemigo.getColisionador());
+                }
+            }
+        }
+
+        //colisiones Enemigos - Enemigos
+        for(Enemigo enemigo1 : nivel.getEnemigos()){
+            for(Enemigo enemigo2 : nivel.getEnemigos()){
+                if(enemigo1 != enemigo2 && estanColisionando(enemigo1, enemigo2)){
+                    enemigo1.aceptarColision(enemigo2.getColisionador());
+                }
+            }
+        }
+
+        //colisiones Municiones - Plataformas
+        for(Municion municion : nivel.getMuniciones()){
+            for(Plataforma plataforma : nivel.getPlataformas()){
+                if(estanColisionando(municion, plataforma)){
+                    plataforma.aceptarColision(municion.getColisionador());
+                }
+            }
+        }
+
+        //Municiones - Obstaculos
+        for(Municion municion : nivel.getMuniciones()){
+            for(Obstaculo obstaculo : nivel.getObstaculos()){
+                if(estanColisionando(municion, obstaculo)){
+                    obstaculo.aceptarColision(municion.getColisionador()); 
+                }
+            }
+        }
     }
 
     protected boolean estanColisionando(Entidad entidad1, Entidad entidad2) {

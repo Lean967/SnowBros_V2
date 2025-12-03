@@ -1,5 +1,6 @@
 package src.Niveles;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -33,13 +34,13 @@ public abstract class Nivel {
     protected LinkedList<Oleada> oleadas;
     protected int oleadaActual;
 
-    protected CopyOnWriteArrayList<Entidad> listaEntidades;
-    protected LinkedList<Obstaculo> obstaculos;
-    protected CopyOnWriteArrayList<Enemigo> enemigos;
+    protected List<Entidad> listaEntidades;
+    protected List<Obstaculo> obstaculos;
+    protected List<Enemigo> enemigos;
     protected SnowBro snowBro;
-    protected CopyOnWriteArrayList<PowerUp> powers;
-    protected LinkedList<Plataforma> plataformas;
-    protected CopyOnWriteArrayList<Municion> municiones;
+    protected List<PowerUp> powers;
+    protected List<Plataforma> plataformas;
+    protected List<Municion> municiones;
     protected JefeDeNivel jefeDeNivel;
 
     protected FabricaEntidades fabricaEntidades;
@@ -51,10 +52,10 @@ public abstract class Nivel {
     protected Nivel(){
         controladorColisiones = new ControladorColisiones(this);
         listaEntidades = new CopyOnWriteArrayList<>();
-        obstaculos = new LinkedList<>();
+        obstaculos = new CopyOnWriteArrayList<>();
         enemigos = new CopyOnWriteArrayList<>();
         powers = new CopyOnWriteArrayList<>();
-        plataformas = new LinkedList<>();
+        plataformas = new CopyOnWriteArrayList<>();
         municiones = new CopyOnWriteArrayList<>();
         oleadas = new LinkedList<>();
         oleadaActual = -1;
@@ -440,27 +441,27 @@ public abstract class Nivel {
         return this.snowBro;
     }
 
-    public CopyOnWriteArrayList<Entidad> getEntidades(){
+    public List<Entidad> getEntidades(){
         return this.listaEntidades;
     }
 
-    public LinkedList<Obstaculo> getObstaculos(){
+    public List<Obstaculo> getObstaculos(){
         return this.obstaculos;
     }
 
-    public CopyOnWriteArrayList<Enemigo> getEnemigos(){
+    public List<Enemigo> getEnemigos(){
         return this.enemigos;
     }
 
-    public CopyOnWriteArrayList<PowerUp> getPowers(){
+    public List<PowerUp> getPowers(){
         return this.powers;
     }
 
-    public LinkedList<Plataforma> getPlataformas(){
+    public List<Plataforma> getPlataformas(){
         return this.plataformas;
     }
 
-    public CopyOnWriteArrayList<Municion> getMuniciones(){
+    public List<Municion> getMuniciones(){
         return this.municiones;
     }
 
@@ -523,6 +524,7 @@ public abstract class Nivel {
     }
 
     public void hacerBucle(){
+        /* 
         if(tiempoAparicionCalabaza>0){
             tiempoAparicionCalabaza--;
         }
@@ -533,5 +535,7 @@ public abstract class Nivel {
             setCalabaza(x, y);
         }
         modoDeJuego.actualizarTiempoAscendente();
+        */
     }
+        
 }

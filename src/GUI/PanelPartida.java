@@ -141,42 +141,45 @@ public class PanelPartida extends PanelVista{
           preferida = new Dimension(48, 48); // Ajustar según el tamaño real del sprite
           observerJugador.setPreferredSize(preferida);
         }
+        observerJugador.setSize(preferida);
 
         if (teclasActuales != null) {
             removeKeyListener(teclasActuales);
         }
         configurarTeclasJugador(snowBro);
+        SwingUtilities.invokeLater( () ->{        
+            imagenJuego.add(observerJugador);
+            imagenJuego.setComponentZOrder(observerJugador, 0);
+            observerJugador.update();
 
-        observerJugador.setSize(preferida);
+            actualizarIndicadorVidas(snowBro.getVidas()); // Inicializa el indicador de vidas
+
+            actualizar();
+        }
+        );
         
-    
-        imagenJuego.add(observerJugador);
-        imagenJuego.setComponentZOrder(observerJugador, 0);
-        observerJugador.update();
-
-        actualizarIndicadorVidas(snowBro.getVidas()); // Inicializa el indicador de vidas
-
-        actualizar();
         return observerJugador;
     }
 
     public Observer incorporarEntidadEstatica(EntidadLogica entidad){
         ObserverGrafico observerEntidad = new ObserverGrafico( entidad);
-        imagenJuego.add(observerEntidad);
-
-        observerEntidad.update();
-
-        actualizar();
+        SwingUtilities.invokeLater(() -> {
+            imagenJuego.add(observerEntidad);
+            imagenJuego.setComponentZOrder(observerEntidad, 0);
+            observerEntidad.update();
+            actualizar();
+        });
         return observerEntidad;
     }
 
     public Observer incorporarEntidadEnemigo(EntidadLogica enemigo){
         ObserverPersonaje observerEntidad = new ObserverPersonaje(enemigo);
-        imagenJuego.add(observerEntidad);
-
-        observerEntidad.update();
-
-        actualizar();
+        SwingUtilities.invokeLater(() -> {
+            imagenJuego.add(observerEntidad);
+            imagenJuego.setComponentZOrder(observerEntidad, 0);
+            observerEntidad.update();
+            actualizar();
+        });
         return observerEntidad;
     }
 

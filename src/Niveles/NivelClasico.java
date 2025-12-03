@@ -15,19 +15,5 @@ public class NivelClasico extends Nivel {
         gestorSonido.reproducirSonido("APARECE_SNOW");
         gestorSonido.reproducirMusica("CLASICO_NIVEL_MUSICA");
     }
-    /*
-    public void setMoghera(int x, int y) {
-        jefeDeNivel = fabricaEntidades.getMoghera(new Posicion(x, y));
-        jefeDeNivel.setNivelActual(this);
-        listaEntidades.add(jefeDeNivel);
-        enemigos.add(jefeDeNivel);
-    }
-    public void setKamakichi(int x, int y) {
-        jefeDeNivel = fabricaEntidades.getKamakichi(new Posicion(x, y));
-        jefeDeNivel.setNivelActual(this);
-        listaEntidades.add(jefeDeNivel);
-        enemigos.add(jefeDeNivel);
-    }
-        */
 
 }

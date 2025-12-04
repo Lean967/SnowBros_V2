@@ -14,6 +14,8 @@ public class DemonioRojo extends Enemigo {
         vida=250;
         puntosPorCongelarse = 150;
         puntosPorRodar=300;
+        ancho = 40;
+        alto = 38;
     }
     
     public void aceptarColision(Colisionador c)  {

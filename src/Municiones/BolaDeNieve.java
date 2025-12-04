@@ -11,8 +11,8 @@ public class BolaDeNieve extends Municion {
     public BolaDeNieve(Sprites sprites, Posicion pos) {
         super(sprites, pos);
         colisionador=new ColisionadorBolaDeNieve(this);
-        ancho = 12;
-        alto = 18;
+        ancho = 16;
+        alto = 16;
         this.daño = ConstantesTeclado.DAÑO_BOLA_NIEVE;
         this.pasoY=-4;
     }

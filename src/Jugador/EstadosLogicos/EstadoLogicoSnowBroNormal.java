@@ -70,7 +70,7 @@ public class EstadoLogicoSnowBroNormal  {
     }
 
     public void disparar() {
-        snowBro.getNivelActual().setBolaDeNieve(snowBro.getPosicion().getX(), snowBro.getPosicion().getY(), snowBro.getDaño());
+        snowBro.getNivelActual().setBolaDeNieve(snowBro.getPosicion().getX(), snowBro.getPosicion().getY() + 5, snowBro.getDaño());
         gestorSonido.reproducirSonido("SNOW_DISPARO_BOLADENIEVE");
     }
 

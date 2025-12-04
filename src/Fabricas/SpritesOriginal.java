@@ -25,9 +25,9 @@ public class SpritesOriginal extends FabricaSprites{
 
     public Sprites getSpritesDemonioRojo() {
         Map<Integer,String> mapeoSprites = new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.QUIETODERECHA, rutaASprites+"/demonio_rojo/demonio2.png");
-        mapeoSprites.put(ConstantesTeclado.QUIETOIZQUIERDA, rutaASprites+"/demonio_rojo/Botom_01.png");
-        mapeoSprites.put(ConstantesTeclado.CONGELADO1, rutaASprites+"/demonio_rojo/DemonioRojo_.png");
+        mapeoSprites.put(ConstantesTeclado.QUIETODERECHA, rutaASprites+"/demonio_rojo/demonio_mirandoDerecha.png");
+        mapeoSprites.put(ConstantesTeclado.QUIETOIZQUIERDA, rutaASprites+"/demonio_rojo/demonio_mirandoIzquierda.png");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO1, rutaASprites+"/demonio_rojo/DemonioRojoCongelado1.png");
         mapeoSprites.put(ConstantesTeclado.CONGELADO2, rutaASprites+"/demonio_rojo/DemonioRojoCongelado2.png");
         mapeoSprites.put(ConstantesTeclado.CONGELADO3, rutaASprites+"/demonio_rojo/DemonioRojoCongelado3.png");
         mapeoSprites.put(ConstantesTeclado.CONGELADO4, rutaASprites+"/demonio_rojo/DemonioRojoCongelado4.png");
@@ -133,7 +133,7 @@ public class SpritesOriginal extends FabricaSprites{
 
     public Sprites getSpritesBolaDeNieve(){
         Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+"/SnowBro/Nick--Tom_0012_Capa-13.png");
+        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+"/SnowBroRecortado/BolaDeNieve.png");
         return (new Sprites(mapeoSprites, ConstantesTeclado.QUIETO));
     }
 

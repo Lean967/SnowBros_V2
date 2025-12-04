@@ -16,7 +16,10 @@ public class ConstantesTeclado {
     public static final int RODANDO = 306;
     public static final int RODANDO_CON_SNOW=307;
     public static final int ATACANDO = 350;
+    public static final int MIRANDO_DERECHA = 600;
+    public static final int MIRANDO_IZQUIERDA = 700;
     
+    //valores que se usan
     public static final int VELOCIDAD_SUBIDO_ENEMIGO_X = 10;
     public static final int VELOCIDAD_SNOWBRO_X = 4;
     public static final int VELOCIDAD_POCIONAZUL_SNOWBRO_X = 10;
@@ -35,16 +38,10 @@ public class ConstantesTeclado {
     public static final int TIEMPO_POWERUPS_EN_NIVEL = 360;
     public static final int TIEMPO_DISPARO_RANA = 180;
     public static final int FUERZA_SALTO_TROLLAMARILLO = -15;
-
-    public static final int MIRANDO_DERECHA = 600;
-    public static final int MIRANDO_IZQUIERDA = 700;
-
     public static final int VELOCIDAD_ENEMIGO_X = 1;
     public static final int VELOCIDAD_LANZAMIENTO_BOLA =10;
-
     public static final int TIEMPO_CONGELAMIENTO= 900;
-
-    public static final int VELOCIDAD_RODAR_BOLA = 8;
+    public static final int VELOCIDAD_RODAR_BOLA = 2;
     public static final int VELOCIDAD_PATEAR_BOLA = 12;
     public static final int TIEMPO_ESPERA_GANAR = 120;
 

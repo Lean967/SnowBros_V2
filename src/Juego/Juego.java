@@ -220,8 +220,7 @@ public class Juego implements ControladorDeJuego{
 
             // Obstaculos
             nivelActual.setEscalera(385, 250, 0);
-            nivelActual.setTrampa(200, 500, 0); 
-            nivelActual.setTrampa(600, 500, 0);
+            nivelActual.setTrampa(200, 500, 0);
             
             // Paredes
             nivelActual.setParedIzquierda(0, 0, 0, 20, 560);

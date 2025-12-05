@@ -5,6 +5,7 @@ import src.GUI.Observers.Observer;
 import src.Juego.Entidad;
 import src.Juego.Personaje;
 import src.Juego.Posicion;
+import src.Jugador.EstadosLogicos.EstadoLogicoSnowBroEscalera;
 import src.Jugador.EstadosLogicos.EstadoLogicoSnowBroMontado;
 import src.Jugador.EstadosLogicos.EstadoLogicoSnowBroNormal;
 import src.Jugador.EstadosLogicos.EstadoLogicoSnowBroRodandoBola;
@@ -197,14 +198,11 @@ public class SnowBro extends Personaje implements Colisionable {
     }
 
     public void subirBajarEscalera() {
-        enEscalera = true;
-        cayendo = false;
-        pasoY = -21;
-        if(teclas.getArriba()){
-            int i= Math.toIntExact(Math.round((posicion.getY()-pasoY)));
-            posicion.setY(i);
-            estadoSprites.misSprites.setEstadoActual(ConstantesTeclado.MOVIENDOSE_DERECHA);
+        if(!enEscalera){
+            estadoLogico = new EstadoLogicoSnowBroEscalera(this);
+            enEscalera = true;
         }
+        enEscalera = false;
     }
 
     public void setEnEscalera(Boolean enEscalera){

@@ -15,6 +15,8 @@ public class Kamakichi extends JefeDeNivel {
         puntosPorCongelarse = 1000;
         this.dañoRecibido=0;
         vida = 500;
+        ancho = 120;
+        alto = 74;
     }
 
 

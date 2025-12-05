@@ -11,7 +11,6 @@ public class ObserverPersonaje extends ObserverGrafico {
 
     public ObserverPersonaje(EntidadLogica enemigoObservado) {
         super(enemigoObservado);
-        this.entidadObservada = enemigoObservado;
         setOpaque(false);
         //update();
     }

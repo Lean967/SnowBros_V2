@@ -65,8 +65,8 @@ public class ObserverGrafico extends JLabel implements Observer{
     }    
 
     public void eliminarEntidad(EntidadLogica e){
-        java.awt.Container parent = ObserverGrafico.this.getParent();
-        parent.remove(ObserverGrafico.this);
+        java.awt.Container parent = this.getParent();
+        parent.remove(this);
         parent.revalidate();
         parent.repaint();
 

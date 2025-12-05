@@ -24,7 +24,7 @@ public class Escalera extends Obstaculo {
 
     public void hacerEfecto(SnowBro snowbro) {
         snowbro.subirBajarEscalera();
-        snowbro.setVelocidadDefectoX(snowbro.getVelocidadDefectoX()/4);
+        
     }
     public void hacerEfecto(DemonioRojo demonio) {
         //no puede subir y bajar escaleras.

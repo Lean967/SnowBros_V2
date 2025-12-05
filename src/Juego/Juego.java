@@ -202,6 +202,7 @@ public class Juego implements ControladorDeJuego{
             controladorGrafica.agregarImagenFondoPartida(rutaFondosNiveles+modoDeJuego.getNombre()+administradorNivel.getIndiceNivelActual()+".png");
             nivelActual.setSnowBro(jugador.getSnowBro());
             nivelActual.getSnowBro().setPosicionInicial();
+            //nivelActual.setDemonioRojo(100, 200);
             nivelActual.setJefeDeNivel(jefe);
             nivelActual.setPuntajeObjetivo(puntajeObjetivo);
             nivelActual.setTiempoLimite(tiempoLimite);

@@ -109,6 +109,7 @@ public class Juego implements ControladorDeJuego{
 
         if(nivelActual != null){
             nivelActual.borrarEntidades();
+            snowBro.eliminar();
         }
         snowBro=jugador.getSnowBro();
         SwingUtilities.invokeLater(new Runnable() {
@@ -198,9 +199,9 @@ public class Juego implements ControladorDeJuego{
             int tiempoLimite = nivelActual.getTiempoLimite();
             int puntajeObjetivo = nivelActual.getPuntajeObjetivo();
             nivelActual.borrarEntidades();
-            controladorGrafica.limpiarEntidadesPartida(); 
-            controladorGrafica.agregarImagenFondoPartida(rutaFondosNiveles+modoDeJuego.getNombre()+administradorNivel.getIndiceNivelActual()+".png");
-            nivelActual.setSnowBro(jugador.getSnowBro());
+            //controladorGrafica.limpiarEntidadesPartida(); 
+            //controladorGrafica.agregarImagenFondoPartida(rutaFondosNiveles+modoDeJuego.getNombre()+administradorNivel.getIndiceNivelActual()+".png");
+            //nivelActual.setSnowBro(jugador.getSnowBro());
             nivelActual.getSnowBro().setPosicionInicial();
             //nivelActual.setDemonioRojo(100, 200);
             nivelActual.setJefeDeNivel(jefe);
@@ -221,16 +222,10 @@ public class Juego implements ControladorDeJuego{
 
             // Obstaculos
             nivelActual.setEscalera(385, 250, 0);
-            nivelActual.setTrampa(200, 500, 0);
-            
-            // Paredes
-            nivelActual.setParedIzquierda(0, 0, 0, 20, 560);
-            nivelActual.setParedDerecha(780, 0, 0, 20, 560);
             
             // Inicializacion
             nivelActual.iniciarNivel();
-            registrarObservers(); 
-            
+            registrarObservers();
         }
     }
 

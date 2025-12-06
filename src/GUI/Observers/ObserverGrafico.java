@@ -5,6 +5,8 @@ import java.awt.Image;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+import java.awt.Container;
 
 public class ObserverGrafico extends JLabel implements Observer{
     protected EntidadLogica entidadObservada;
@@ -65,10 +67,23 @@ public class ObserverGrafico extends JLabel implements Observer{
     }    
 
     public void eliminarEntidad(EntidadLogica e){
-        java.awt.Container parent = this.getParent();
-        parent.remove(this);
-        parent.revalidate();
-        parent.repaint();
+        Runnable remover = () -> {
+            Container parent = this.getParent();
+            if (parent != null) {
+                parent.remove(this);
+                parent.revalidate();
+                parent.repaint();
+            } else {
+                // Si no tiene parent, simplemente ocultamos el componente para evitar NPE
+                this.setVisible(false);
+            }
+        };
+
+        if (SwingUtilities.isEventDispatchThread()) {
+            remover.run();
+        } else {
+            SwingUtilities.invokeLater(remover);
+        }
 
     }
 

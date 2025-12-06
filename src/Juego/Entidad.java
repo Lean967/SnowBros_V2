@@ -48,6 +48,8 @@ public abstract class Entidad implements EntidadLogica {
         observers.clear();
     }
 
+    public abstract void eliminar();
+
     public void setDimensiones(int ancho, int alto) {
         this.ancho = ancho;
         this.alto = alto;

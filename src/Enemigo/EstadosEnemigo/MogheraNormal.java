@@ -90,6 +90,15 @@ public class MogheraNormal extends EnemigoNormal {
                 buscarSnowBro(snowBro);
                 disparar();
             }
+        }else if(tiempoDescongelamiento>0){
+            tiempoDescongelamiento--;
+            if(enemigo.getCayendo()){
+                puedeMoverse=true;
+                this.mover();
+            }
+            puedeMoverse=false;
+        }else{
+            puedeMoverse=true;
         }
         if(duracionAnimacion>0)
             duracionAnimacion--;

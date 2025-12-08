@@ -212,10 +212,10 @@ public abstract class Nivel {
         pared.setEstado(new ParedNormal(pared));
     }
 
-    public void setSueloResbaladizo(int x, int y, int estadoSprite){
+    public void setSueloResbaladizo(int x, int y, int estadoSprite, int ancho, int alto){
         SueloResbaladizo suelo = fabricaEntidades.getSueloResbaladizo(new Posicion(x, y));
         suelo.setNivelActual(this);
-        suelo.setDimensiones(100, 30); 
+        suelo.setDimensiones(ancho, alto);
         listaEntidades.add(suelo);
         obstaculos.addLast(suelo);
     }

@@ -21,7 +21,6 @@ public class ObserverJugador extends ObserverPersonaje{
     public void update(){
         panelPartida.actualizarIndicadorVidas(snowBroObservado.getVidas());
         this.panelPartida.actualizarIndicadorPuntaje(snowBroObservado.getPuntaje());
-        panelPartida.actualizarIndicadorNivel(snowBroObservado.getNivelActual().getJuego().getAdministradorNivel().getIndiceNivelActual() - 1);
 
         super.update();
     }

@@ -225,7 +225,7 @@ public class LectorDeNivel {
                  nivel.setParedDerecha(x, y, estadoSprite, ancho, alto);
                  break;
             case "SUELORESBALADIZO":
-                nivel.setSueloResbaladizo(x, y, estadoSprite);
+                nivel.setSueloResbaladizo(x, y, estadoSprite, ancho, alto);
                 break;
             case "PAREDDESTRUCTIBLE":
                 nivel.setParedDestructible(x, y, estadoSprite);

@@ -41,6 +41,7 @@ public class Contrarreloj extends ModoDeJuego {
             tiempoRestanteSegundos = nivel.getTiempoLimite();
             jefeEnCombate=true;
         }else if(jefeEnCombate && nivel.getJefeDeNivel() == null && nivel.getSnowBro().getVidas() > 0){
+            jefeEnCombate = false;
                 nivel.ganarNivel();
         }
     }

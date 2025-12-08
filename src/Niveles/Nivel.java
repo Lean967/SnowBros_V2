@@ -96,10 +96,10 @@ public abstract class Nivel {
         return jefeDeNivel;
     }
 
-    public void setJefeDeNivel(JefeDeNivel jefeDeNivel){
-        this.jefeDeNivel = jefeDeNivel;
+    public void setJefeDeNivel(){
         enemigos.add(jefeDeNivel);
         listaEntidades.add(jefeDeNivel);
+        modoDeJuego.setEnemigosRestantes(enemigos.size());
     }
 
 
@@ -313,18 +313,14 @@ public abstract class Nivel {
         listaEntidades.add(rana);
         enemigos.add(rana);
     }
-    public void setMoghera(int x, int y, int estadoSprite, int ancho, int alto){
+    public void setMoghera(int x, int y){
         Moghera moghera = fabricaEntidades.getMoghera(new Posicion(x, y));
         moghera.setNivelActual(this);
-        moghera.setDimensiones(ancho, alto);
-        moghera.getSprites().setEstadoActual(estadoSprite);
-        
         jefeDeNivel = moghera;
     }
-    public void setKamakichi(int x, int y, int ancho, int alto){
+    public void setKamakichi(int x, int y){
         Kamakichi kamakichi = fabricaEntidades.getKamakichi(new Posicion(x, y));
         kamakichi.setNivelActual(this);
-        kamakichi.setDimensiones(ancho, alto);
         jefeDeNivel = kamakichi;
     }
 

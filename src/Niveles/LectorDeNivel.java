@@ -265,10 +265,10 @@ public class LectorDeNivel {
                 break;
             //JEFES
             case "MOGHERA":
-                nivel.setMoghera(x, y,estadoSprite, ancho, alto);
+                nivel.setMoghera(x, y);
                 break;
             case "KAMAKICHI":
-                nivel.setKamakichi(x, y, ancho, alto);
+                nivel.setKamakichi(x, y);
                 break;
             
             default:

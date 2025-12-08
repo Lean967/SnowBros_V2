@@ -24,21 +24,6 @@ public class NivelContrarreloj extends Nivel{
         gestorSonido.reproducirMusica("CONTRARRELOJ_NIVEL_MUSICA");
     }
 
-
-    public void setMoghera(int x, int y) {
-        jefeDeNivel = fabricaEntidades.getMoghera(new Posicion(x, y));
-    }
-
-
-    public void setKamakichi(int x, int y) {
-        jefeDeNivel = fabricaEntidades.getKamakichi(new Posicion(x, y));
-    }
-
-    public void setFrecuenciaEnemigos(int frecuencia) {
-    }
-
-    public void setFrecuenciaPowers(int frecuencia) {
-    }
     public void setTiempoLimite(int tiempoLimite){
         this.tiempoLimite = tiempoLimite;
     }

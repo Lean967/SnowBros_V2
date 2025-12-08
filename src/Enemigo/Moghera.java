@@ -16,6 +16,8 @@ public class Moghera extends JefeDeNivel {
         this.estado = new MogheraNormal(this, sprites);
         this.dañoRecibido=0;
         vida = 500;
+        alto = 110;
+        ancho = 110;
     }
 
     public void aceptarColision(Colisionador colisionador){

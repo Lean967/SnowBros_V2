@@ -26,12 +26,13 @@ public class Supervivencia extends ModoDeJuego{
 
 
     public void hacerBucle() {
-        if(tiempoAparicionJefe == 0 && !jefeEnCombate){
+        if(tiempoAparicionJefe <= 0 && !jefeEnCombate && cantidadEnemigos == 0){
             nivel.getJuego().nivelParaJefe();
             jefeEnCombate = true;
-        }else{
+        }else if(tiempoAparicionJefe > 0){
             tiempoAparicionJefe--;
         }
+
         if(cantidadEnemigos == 0){
             if(tiempoEspera>0){
                 tiempoEspera--;

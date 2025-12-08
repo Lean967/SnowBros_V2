@@ -195,7 +195,6 @@ public class Juego implements ControladorDeJuego{
 
     public void nivelParaJefe(){
         if(nivelActual != null){
-            JefeDeNivel jefe=nivelActual.getJefeDeNivel();
             int tiempoLimite = nivelActual.getTiempoLimite();
             int puntajeObjetivo = nivelActual.getPuntajeObjetivo();
             nivelActual.borrarEntidades();
@@ -203,11 +202,9 @@ public class Juego implements ControladorDeJuego{
             //controladorGrafica.agregarImagenFondoPartida(rutaFondosNiveles+modoDeJuego.getNombre()+administradorNivel.getIndiceNivelActual()+".png");
             //nivelActual.setSnowBro(jugador.getSnowBro());
             nivelActual.getSnowBro().setPosicionInicial();
-            //nivelActual.setDemonioRojo(100, 200);
-            nivelActual.setJefeDeNivel(jefe);
+            nivelActual.setJefeDeNivel();
             nivelActual.setPuntajeObjetivo(puntajeObjetivo);
             nivelActual.setTiempoLimite(tiempoLimite);
-            jefe.setCayendo(false);
 
             //Plataforma principal
             nivelActual.setPlataformaEstatica(-5, 530, 4, 800, 35); // Base del nivel
@@ -219,13 +216,14 @@ public class Juego implements ControladorDeJuego{
             nivelActual.setPlataformaMovedizaLateral(10, 300, 10, 300, 1, 150, 25,Movediza.Modo.HORIZONTAL);
             nivelActual.setPlataformaMovedizaLateral(500, 200, 500, 750, 1, 150, 25,Movediza.Modo.HORIZONTAL);*/
 
-
             // Obstaculos
             nivelActual.setEscalera(385, 250, 0);
             
             // Inicializacion
             nivelActual.iniciarNivel();
-            registrarObservers();
+            registrarObserverEnemigos(nivelActual.getEnemigos());
+            registrarObserversEstaticos(nivelActual.getObstaculos());
+            registrarObserversEstaticos(nivelActual.getPlataformas());
         }
     }
 

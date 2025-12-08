@@ -13,8 +13,8 @@ public class NivelSupervivencia extends Nivel {
     }
 
     public void iniciarNivel() {
-        siguienteOleada();
-        modoDeJuego.setEnemigosRestantes(enemigos.size());
+        //siguienteOleada();
+        //modoDeJuego.setEnemigosRestantes(enemigos.size());
         gestorSonido.detenerMusica();
         gestorSonido.reproducirSonido("APARECE_SNOW");
         gestorSonido.reproducirMusica("SUPERVIVENCIA_NIVEL_MUSICA");
@@ -27,7 +27,7 @@ public class NivelSupervivencia extends Nivel {
             for(Enemigo enemigo : siguienteOleada.getEnemigos()){
                 enemigos.add(enemigo);
                 enemigo.setNivelActual(this);
-                juego.registrarObserverNuevaEntidad(enemigo);
+                juego.registrarObserverNuevaEntidadEnemigo(enemigo);
             }
             modoDeJuego.setEnemigosRestantes(enemigos.size());
         }

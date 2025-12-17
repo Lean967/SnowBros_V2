@@ -177,18 +177,18 @@ public class SpritesPersonal extends FabricaSprites {
 
     public Sprites getSpritesMoghera() {
         Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+ "/mongera(bowser)/bowser-apareciendo.gif");
-        mapeoSprites.put(ConstantesTeclado.PERDER_VIDA, rutaASprites+ "/mongera(bowser)/bowser-muerto.gif");
-        mapeoSprites.put(ConstantesTeclado.SALTANDO, rutaASprites+ "/mongera(bowser)/bowser-moviendose.gif");
+        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+ "/moghera(wario)/wario-quieto-izquierda.gif");
+        mapeoSprites.put(ConstantesTeclado.PERDER_VIDA, rutaASprites+ "/moghera(wario)/wario-muerto.gif");
+        mapeoSprites.put(ConstantesTeclado.SALTANDO, rutaASprites+ "/moghera(wario)/wario-saltando.png");
         return (new Sprites(mapeoSprites, ConstantesTeclado.QUIETO));
     }
 
 
     public Sprites getSpritesKamakichi() {
-         Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.ATACANDO, rutaASprites+ "/Kamakichi/kamakichi-atacando.giff");
-        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+ "/Kamakichi/kamakichi-capa-2.gif");
-        mapeoSprites.put(ConstantesTeclado.SALTANDO, rutaASprites+ "/Kamakichi/kamakichi-movimiento-vertical.gif");
+        Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
+        mapeoSprites.put(ConstantesTeclado.ATACANDO, rutaASprites+ "/kamakichi(bowser)/bowser-apareciendo.gif");
+        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+ "/kamakichi(bowser)/bowser-quieto-izquierda.png");
+        mapeoSprites.put(ConstantesTeclado.SALTANDO, rutaASprites+ "/kamakichi(bowser)/bowser-moviendose.gif");
         return (new Sprites(mapeoSprites, ConstantesTeclado.QUIETO));
     }
 
@@ -204,14 +204,14 @@ public class SpritesPersonal extends FabricaSprites {
 
     public Sprites getSpritesBolaDeFuego() {
         Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+"/mongera(bowser)/fuego-moviendose.gif");
+        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+"/kamakichi(bowser)/fuego-moviendose.gif");
         return (new Sprites(mapeoSprites, ConstantesTeclado.QUIETO));
     }
 
     public Sprites getSpritesBomba() {
         Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+"/Kamakichi/bomba-cayendo-izquierda.png");
-        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA, rutaASprites+"/Kamakichi/bomba-cayendo-izquierda.png");
+        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+"/moghera(wario)/bomba-izquierda.gif");
+        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA, rutaASprites+"/moghera(wario)/bomba-izquierda.gif");
         return (new Sprites(mapeoSprites, ConstantesTeclado.MOVIENDOSE_DERECHA));
     }
 

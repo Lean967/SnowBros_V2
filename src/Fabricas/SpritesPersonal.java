@@ -25,17 +25,17 @@ public class SpritesPersonal extends FabricaSprites {
 
     public Sprites getSpritesDemonioRojo() {
         Map<Integer,String> mapeoSprites = new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.QUIETODERECHA, rutaASprites+"/demonio-rojo(gompaa)/hongo-quieto.PNG");
-        mapeoSprites.put(ConstantesTeclado.QUIETOIZQUIERDA, rutaASprites+"/demonio-rojo(gompaa)/hongo-quieto.PNG");
-        mapeoSprites.put(ConstantesTeclado.CONGELADO1, rutaASprites+"/demonio-rojo(gompaa)/hongo-congelado-1.png");
-        mapeoSprites.put(ConstantesTeclado.CONGELADO2, rutaASprites+"/demonio-rojo(gompaa)/hongo-congelado-2.png");
-        mapeoSprites.put(ConstantesTeclado.CONGELADO3, rutaASprites+"/demonio-rojo(gompaa)/hongo-congelado-3.png");
-        mapeoSprites.put(ConstantesTeclado.CONGELADO4, rutaASprites+"/demonio-rojo(gompaa)/hongo-congelado-4.png");
-        mapeoSprites.put(ConstantesTeclado.CONGELADO5, rutaASprites+"/demonio-rojo(gompaa)/hongo-congelado-4.png");
+        mapeoSprites.put(ConstantesTeclado.QUIETODERECHA, rutaASprites+"/coqui2_.jpeg");
+        mapeoSprites.put(ConstantesTeclado.QUIETOIZQUIERDA, rutaASprites+"/coqui2_.jpeg");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO1, rutaASprites+"/coqui2_.jpeg");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO2, rutaASprites+"/coqui2_.jpeg");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO3, rutaASprites+"/coqui2_.jpeg");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO4, rutaASprites+"/coqui2_.jpeg");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO5, rutaASprites+"/Hielo5.png");
         mapeoSprites.put(ConstantesTeclado.RODANDO, rutaASprites+"/bolaNieve/bola-nieve-girando.gif");
         mapeoSprites.put(ConstantesTeclado.RODANDO_CON_SNOW, rutaASprites+"/bolaNieve/bola-nieve-girando.gif");
-        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA,rutaASprites+"/demonio-rojo(gompaa)/hongo-caminando.gif" );
-        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+"/demonio-rojo(gompaa)/hongo-caminando.gif" );
+        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA,rutaASprites+"/coqui2_.jpeg" );
+        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+"/coqui2_.jpeg" );
         return (new Sprites (mapeoSprites, ConstantesTeclado.QUIETODERECHA));
     }
 
@@ -51,7 +51,7 @@ public class SpritesPersonal extends FabricaSprites {
         mapeoSprites.put(ConstantesTeclado.CONGELADO2, rutaASprites+"/troll-amarillo(tortuga-amarilla)/tortuga-amarilla-congelado-2.png");
         mapeoSprites.put(ConstantesTeclado.CONGELADO3, rutaASprites+"/troll-amarillo(tortuga-amarilla)/tortuga-amarilla-congelado-3.png");
         mapeoSprites.put(ConstantesTeclado.CONGELADO4, rutaASprites+"/troll-amarillo(tortuga-amarilla)/tortuga-amarilla-congelado-4.png");
-        mapeoSprites.put(ConstantesTeclado.CONGELADO5, rutaASprites+"/troll-amarillo(tortuga-amarilla)/tortuga-amarilla-congelado-4.png\"");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO5, rutaASprites+"/Hielo5.png");
         return (new Sprites (mapeoSprites, ConstantesTeclado.QUIETODERECHA));
     }
 
@@ -59,7 +59,11 @@ public class SpritesPersonal extends FabricaSprites {
         Map<Integer,String> mapeoSprites = new HashMap<Integer,String>();
         mapeoSprites.put(ConstantesTeclado.QUIETODERECHA, "/src/imagenes/calabaza/CalabazaQuietoDerecha.png");
         mapeoSprites.put(ConstantesTeclado.QUIETOIZQUIERDA, "/src/imagenes/calabaza/CalabazaQuietoIzquierda.png");
-
+        mapeoSprites.put(ConstantesTeclado.CONGELADO1, rutaASprites+"/troll-amarillo(tortuga-amarilla)/tortuga-amarilla-congelado-1.png");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO2, rutaASprites+"/troll-amarillo(tortuga-amarilla)/tortuga-amarilla-congelado-2.png");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO3, rutaASprites+"/troll-amarillo(tortuga-amarilla)/tortuga-amarilla-congelado-3.png");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO4, rutaASprites+"/troll-amarillo(tortuga-amarilla)/tortuga-amarilla-congelado-4.png");
+        mapeoSprites.put(ConstantesTeclado.CONGELADO5, rutaASprites+"/Hielo5.png");
 
         mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA, rutaASprites+"/calabaza (mago)/mago-caminando-derecha.gif");
         mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+"/calabaza (mago)/mago-caminando-izquierda.gif");
@@ -79,7 +83,13 @@ public class SpritesPersonal extends FabricaSprites {
     }
 
     public Sprites getSpritesSnowRojo() {
-        throw new UnsupportedOperationException("Unimplemented method 'getSpritesSnowRojo'");
+        Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
+        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+"/SnowBroRecortado/snow01.png");
+         mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA, rutaASprites+ "/SnowBroRecortado/snowbro-caminando-derecha.gif");
+        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+ "/SnowBroRecortado/snowbro-caminando-izquierda.gif");
+        mapeoSprites.put(ConstantesTeclado.PERDER_VIDA, rutaASprites+"/SnowBroRecortado/snowbro-muriendo.gif");
+        mapeoSprites.put(ConstantesTeclado.SALTANDO, rutaASprites+"/SnowBroRecortado/snowbro-saltando.gif");
+        return (new Sprites(mapeoSprites, ConstantesTeclado.QUIETO));
     }
 
     public Sprites getSpritesSnowRodandoBola() {
@@ -127,7 +137,7 @@ public class SpritesPersonal extends FabricaSprites {
 
     public Sprites getSpritesBolaDeNieve() {
         Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+"/snow(mario)/nieve.gif");
+        mapeoSprites.put(ConstantesTeclado.QUIETO, rutaASprites+"/coqui1_.jpeg");
         return (new Sprites(mapeoSprites, ConstantesTeclado.QUIETO));
     }
 
@@ -161,8 +171,6 @@ public class SpritesPersonal extends FabricaSprites {
         Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
         mapeoSprites.put(ConstantesTeclado.QUIETODERECHA, "/src/imagenes/rana-de-fuego/rana-de-fuego-quieto-derecha.PNG");
         mapeoSprites.put(ConstantesTeclado.QUIETOIZQUIERDA, "/src/imagenes/rana-de-fuego/rana-de-fuego-quieto-izquierda.PNG");
-
-
         mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA, rutaASprites+"/rana-de-fuego(dragon)/rana-de-fuego-caminando-derecha.gif");
         mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+"/rana-de-fuego(dragon)/rana-de-fuego-caminando-izquierda.gif");
         mapeoSprites.put(ConstantesTeclado.CONGELADO1, rutaASprites+"/rana-de-fuego(dragon)/rana-de-fuego-congelado-derecha-1.png");
@@ -210,8 +218,8 @@ public class SpritesPersonal extends FabricaSprites {
 
     public Sprites getSpritesBomba() {
         Map<Integer, String> mapeoSprites= new HashMap<Integer,String>();
-        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+"/moghera(wario)/bomba-izquierda.gif");
-        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA, rutaASprites+"/moghera(wario)/bomba-izquierda.gif");
+        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_IZQUIERDA, rutaASprites+"/coqui3_.jpeg");
+        mapeoSprites.put(ConstantesTeclado.MOVIENDOSE_DERECHA, rutaASprites+"/coqui3_.jpeg");
         return (new Sprites(mapeoSprites, ConstantesTeclado.MOVIENDOSE_DERECHA));
     }
 
